@@ -1,0 +1,46 @@
+name: Contract or documentation problem
+description: Report a reproducible ambiguity, inconsistency, or unsafe behavior
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Do not include secrets, private paths, private repository URLs, or personal data. Use the Security policy for sensitive reports.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: 0.2.0 or a commit SHA
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Skill activation or workflow
+        - Shared contract
+        - Runtime capability profile
+        - Example
+        - README or translation
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: Describe what happened using privacy-safe, minimal details.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected safe behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and conditions
+      description: Include runtime identity, date, configuration boundaries, and missing evidence where relevant.

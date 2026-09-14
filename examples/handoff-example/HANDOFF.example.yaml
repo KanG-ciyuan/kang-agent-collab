@@ -1,0 +1,34 @@
+handoff_updated: YYYY-MM-DDTHH:MM:SSZ
+last_agent: agent-a
+task_ref: my-project-example-change
+project_id: my-project
+authority_note: docs/project-authority.md
+canonical_repo: https://github.com/example/my-project
+result_state: done
+current_state:
+  branch: example/change
+  head: REPLACE_WITH_FULL_40_CHARACTER_COMMIT_SHA
+  working_tree:
+    status: clean
+    staged: none
+    unstaged: none
+    untracked: none
+completed_and_evidence:
+  - Requested behavior implemented within the allowed paths.
+  - Focused test command completed with the recorded expected result.
+current_breakpoint: No unfinished implementation work.
+next_action: Re-run the focused test after re-verifying repository state.
+do_not_do:
+  - Do not deploy or push without explicit permission.
+  - Do not modify unrelated modules.
+allowed_write_paths:
+  - src/example-module
+  - tests/example-module
+tests:
+  command: REPLACE_WITH_PROJECT_TEST_COMMAND
+  observed_result: passed
+upstream_or_remote: origin points to the canonical repository; push is not authorized.
+permissions_and_cost:
+  network: forbidden
+  paid_services: forbidden
+  push: forbidden

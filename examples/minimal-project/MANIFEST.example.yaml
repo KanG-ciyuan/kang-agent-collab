@@ -1,0 +1,29 @@
+task_ref: my-project-example-change
+objective: Add one documented, verified behavior without changing unrelated modules.
+scope:
+  - src/example-module
+  - tests/example-module
+out_of_scope:
+  - deployment
+  - dependency upgrades
+  - unrelated refactors
+acceptance:
+  - The requested behavior is implemented.
+  - Focused tests pass.
+  - Existing unrelated changes remain untouched.
+agent: receiving-agent
+risk: low
+allowed_write_paths:
+  - src/example-module
+  - tests/example-module
+state_baseline:
+  branch: main
+  head: REPLACE_WITH_FULL_40_CHARACTER_COMMIT_SHA
+  working_tree: clean
+git_commit: recommended
+vault_writeback: candidate_only
+permissions_and_cost:
+  network: forbidden
+  paid_services: forbidden
+  push: forbidden
+handoff_trigger: Create a Handoff if the task is unfinished or another agent must continue.

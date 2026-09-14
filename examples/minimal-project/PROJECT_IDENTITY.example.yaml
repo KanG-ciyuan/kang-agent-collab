@@ -1,0 +1,7 @@
+project_id: my-project
+authoritative_entry: docs/project-authority.md
+repository_or_workspace: https://github.com/example/my-project
+relationship_to_other_projects: none
+status: verified
+confirmed_by: project-maintainer
+last_verified: YYYY-MM-DD

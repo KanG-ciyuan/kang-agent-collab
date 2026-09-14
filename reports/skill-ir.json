@@ -1,0 +1,110 @@
+{
+  "schema_version": "2.0.0-kang-lite",
+  "generated_at": "2026-09-14",
+  "package": {
+    "name": "kang-agent-collab",
+    "version": "0.2.0",
+    "owner": "Kang",
+    "maturity_tier": "governed",
+    "lifecycle_stage": "initial-release",
+    "maintenance": {}
+  },
+  "intent": {
+    "description": "Use when work must continue across agents through shared project identity, scoped task state, Git evidence, write-back candidates, handoff, or takeover. Also use when resuming an interrupted engineering task without relying on full chat history. Do not use for agent selection, delegation, orchestration, routing, automatic Vault writes, or worktree management.",
+    "job_to_be_done": "Recover project identity and engineering state, then hand work between agents without relying on full chat history.",
+    "target_users": [
+      "developers",
+      "maintainers",
+      "AI coding agent operators"
+    ],
+    "inputs": [
+      "project identity",
+      "project authority or shared memory",
+      "current task Manifest",
+      "live Git state",
+      "optional Handoff"
+    ],
+    "outputs": [
+      "evidence-backed result state",
+      "safe continuation decision",
+      "bounded Handoff or write-back candidate when triggered"
+    ],
+    "exclusions": [
+      "agent selection",
+      "delegation",
+      "orchestration",
+      "scheduling",
+      "automatic shared-memory writes",
+      "worktree management",
+      "hosted services"
+    ],
+    "kang_defaults": {}
+  },
+  "triggers": {
+    "should_trigger": [
+      "Prepare a handoff with Git state so another agent can continue this project.",
+      "Resume this interrupted task from project_id my-project and verify the live repository.",
+      "Agent B should take over from shared project memory and classify any Git drift.",
+      "让另一个 Agent 根据项目身份和 Git 状态安全接手。"
+    ],
+    "should_not_trigger": [
+      "Choose an agent and delegate roles for a new product team.",
+      "Build an orchestrator with a scheduler, queue, and dashboard.",
+      "Explain how to resolve a Git merge conflict in one session."
+    ],
+    "near_neighbor": [
+      "Write a project status summary for my manager.",
+      "Create an Obsidian note from this meeting transcript.",
+      "Compare coding agents and recommend which one I should use."
+    ]
+  },
+  "workflow": {
+    "router_rules": [],
+    "compact_workflow": [],
+    "gate_ladder": [],
+    "output_contract": []
+  },
+  "resources": {
+    "references": [
+      "references/capability-profiles.md",
+      "references/contracts.md"
+    ],
+    "scripts": [],
+    "evals": [
+      "evals/trigger_cases.json"
+    ],
+    "reports": [
+      "reports/creation-handoff.md",
+      "reports/prior-art-research.md",
+      "reports/skill-ir.json",
+      "reports/trigger-eval.json"
+    ]
+  },
+  "portability": {
+    "canonical_format": "agent-skills",
+    "adapter_targets": [
+      "openai",
+      "claude",
+      "generic",
+      "agent-skills-compatible"
+    ],
+    "activation": "runtime-dependent",
+    "execution": {},
+    "trust": {},
+    "permissions": {
+      "project_memory": "requires explicit access",
+      "repository": "requires explicit access",
+      "file_write": "requires current task permission",
+      "git_commit": "requires Manifest or explicit permission",
+      "git_push": "requires explicit publication permission"
+    },
+    "degradation": {}
+  },
+  "gates": {},
+  "evidence_boundary": {
+    "generated_reports_are_evidence": true,
+    "planned_work_is_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "claim only what local validation, install proof, human review, or provider-backed evidence actually supports"
+  }
+}

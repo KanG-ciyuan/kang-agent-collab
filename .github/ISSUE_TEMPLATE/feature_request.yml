@@ -1,0 +1,34 @@
+name: Focused improvement
+description: Propose a small improvement that stays within the Skill and protocol boundary
+title: "[Proposal]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What repeated handoff or recovery problem is not covered?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Smallest useful change
+      description: Explain why this belongs in the protocol rather than a runtime adapter or separate project.
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Boundaries and evidence
+      description: State compatibility impact, safety implications, tests, and missing evidence.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This does not introduce orchestration, scheduling, a database, a dashboard, a registry, hosted memory, or automatic write-back.
+          required: true

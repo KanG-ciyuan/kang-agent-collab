@@ -1,0 +1,104 @@
+{
+  "recommended_threshold": 0.34,
+  "description_required_concepts": [
+    "handoff",
+    "project_state",
+    "cross_agent"
+  ],
+  "positive_concepts": {
+    "handoff": [
+      "handoff",
+      "takeover",
+      "resume",
+      "interrupted",
+      "交接",
+      "接手",
+      "恢复"
+    ],
+    "project_state": [
+      "project identity",
+      "project_id",
+      "git evidence",
+      "git state",
+      "shared project identity",
+      "shared project memory",
+      "manifest",
+      "项目身份",
+      "项目状态"
+    ],
+    "cross_agent": [
+      "across agents",
+      "cross-agent",
+      "another agent",
+      "different agents",
+      "agent b",
+      "另一个 agent",
+      "不同 agent"
+    ],
+    "safety": [
+      "verify",
+      "evidence",
+      "drift",
+      "safe to continue",
+      "authority",
+      "核验",
+      "安全继续"
+    ]
+  },
+  "negative_patterns": [
+    "choose an agent",
+    "delegate roles",
+    "schedule agents",
+    "build an orchestrator",
+    "create a dashboard",
+    "agent selection",
+    "选择 agent",
+    "编排 agent"
+  ],
+  "should_trigger": [
+    {
+      "text": "Prepare a handoff with Git state so another agent can continue this project.",
+      "family": "handoff"
+    },
+    {
+      "text": "Resume this interrupted task from project_id my-project and verify the live repository.",
+      "family": "recovery"
+    },
+    {
+      "text": "Agent B should take over from shared project memory and classify any Git drift.",
+      "family": "takeover"
+    },
+    {
+      "text": "让另一个 Agent 根据项目身份和 Git 状态安全接手。",
+      "family": "multilingual"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "Choose an agent and delegate roles for a new product team.",
+      "family": "workforce"
+    },
+    {
+      "text": "Build an orchestrator with a scheduler, queue, and dashboard.",
+      "family": "platform"
+    },
+    {
+      "text": "Explain how to resolve a Git merge conflict in one session.",
+      "family": "ordinary_git"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "Write a project status summary for my manager.",
+      "family": "status_report"
+    },
+    {
+      "text": "Create an Obsidian note from this meeting transcript.",
+      "family": "knowledge_write"
+    },
+    {
+      "text": "Compare coding agents and recommend which one I should use.",
+      "family": "agent_selection"
+    }
+  ]
+}

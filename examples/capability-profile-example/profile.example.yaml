@@ -1,0 +1,18 @@
+profile_id: example-runtime-local
+runtime: Example Runtime 1.2.3
+skill_activation: available
+context_access:
+  repository: conditional
+  obsidian: unknown
+execution:
+  shell: conditional
+  git: conditional
+  browser: unavailable
+  computer_use: unknown
+handoff:
+  can_consume: available
+  can_produce: available
+permission_notes: Capabilities depend on the active tool configuration and do not grant task permission.
+escalation_conditions: Required paths or tools are unavailable, Project Identity is uncertain, or drift is D3.
+last_verified: YYYY-MM-DD
+verification_notes: Replace with the exact activation and tool checks that were observed.

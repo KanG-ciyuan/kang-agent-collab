@@ -1,0 +1,63 @@
+{
+  "name": "kang-agent-collab",
+  "version": "0.2.0",
+  "owner": "Kang",
+  "updated_at": "2026-09-14",
+  "status": "public-release-candidate",
+  "maturity_tier": "governed",
+  "lifecycle_stage": "initial-release",
+  "entrypoint": "SKILL.md",
+  "license": "MIT",
+  "review_cadence": "manual",
+  "target_platforms": [
+    "generic-agent-runtime",
+    "agent-skills-compatible"
+  ],
+  "intent": {
+    "job_to_be_done": "Recover project identity and engineering state, then hand work between agents without relying on full chat history.",
+    "target_users": [
+      "developers",
+      "maintainers",
+      "AI coding agent operators"
+    ],
+    "inputs": [
+      "project identity",
+      "project authority or shared memory",
+      "current task Manifest",
+      "live Git state",
+      "optional Handoff"
+    ],
+    "outputs": [
+      "evidence-backed result state",
+      "safe continuation decision",
+      "bounded Handoff or write-back candidate when triggered"
+    ],
+    "exclusions": [
+      "agent selection",
+      "delegation",
+      "orchestration",
+      "scheduling",
+      "automatic shared-memory writes",
+      "worktree management",
+      "hosted services"
+    ]
+  },
+  "permissions": {
+    "default": "read-only recovery and verification",
+    "file_write": "requires current task permission",
+    "git_commit": "requires Manifest or explicit permission",
+    "git_push": "requires explicit publication permission",
+    "shared_memory_write": "candidate-only unless explicitly authorized"
+  },
+  "release_gates": [
+    "package validation",
+    "trigger boundary evaluation",
+    "privacy and secret scan",
+    "public claim review",
+    "feature branch publication",
+    "pull request review",
+    "versioned release",
+    "discovery verification",
+    "isolated installation check"
+  ]
+}

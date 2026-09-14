@@ -1,0 +1,22 @@
+interface:
+  display_name: "Kang Agent Collaboration"
+  short_description: "Recover project state and hand work across agents using shared memory and Git evidence"
+  default_prompt: "Use $kang-agent-collab to recover the requested project identity, verify current Git state and task permission, continue only when safe, and produce a bounded handoff when another agent must take over."
+  examples:
+    - "Resume this project from its project_id and verify the live Git state before changing anything."
+    - "Prepare a handoff so another coding agent can continue without the full chat history."
+    - "Take over this task, classify any drift, and stop if change ownership is unknown."
+compatibility:
+  canonical_format: "agent-skills"
+  activation: "runtime-dependent"
+  adapter_targets:
+    - openai
+    - claude
+    - generic
+    - agent-skills-compatible
+  permissions:
+    project_memory: "requires explicit access"
+    repository: "requires explicit access"
+    file_write: "requires current task permission"
+    git_commit: "requires Manifest or explicit permission"
+    git_push: "requires explicit publication permission"
